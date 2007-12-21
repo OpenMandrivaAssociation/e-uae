@@ -25,6 +25,7 @@ Patch5: uae-0.8.22-openscsi.patch
 Patch6: e-uae-0.8.27-fucomi.patch
 License: GPL
 Group: Emulators
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: X11-devel
 BuildRequires: gtk+-devel
 BuildRequires: gtk+2-devel
