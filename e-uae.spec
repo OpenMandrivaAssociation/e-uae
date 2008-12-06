@@ -1,11 +1,12 @@
 %define name		e-uae
 %define mversion	0.8.29
 %define	rel		%mkrel 4
-%define release		1.WIP4.%{rel}
+%define release		1.%{wiprel}.%{rel}
 %define cdrname		cdrtools
 %define cdrmainvers	2.01
 %define cdrvers 	%{cdrmainvers}a38
-
+%define wiprel		WIP4
+%define fversion	%{mversion}-%{wiprel}
 # For building with SCSI support
 %define build_scsi 1
 %{?_with_scsi: %global build_scsi 1}
