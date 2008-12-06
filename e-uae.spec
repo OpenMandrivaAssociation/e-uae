@@ -1,23 +1,19 @@
-%define name		e-uae
-%define mversion	0.8.29
-%define	rel		%mkrel 4
-%define release		1.%{wiprel}.%{rel}
 %define cdrname		cdrtools
 %define cdrmainvers	2.01
 %define cdrvers 	%{cdrmainvers}a38
 %define wiprel		WIP4
-%define fversion	%{mversion}-%{wiprel}
+
 # For building with SCSI support
 %define build_scsi 1
 %{?_with_scsi: %global build_scsi 1}
 %{?_without_scsi: %global build_scsi 0}
 
 Summary: A software emulation of the Amiga system
-Name: %{name}
-Version: %{mversion}
-Release: %{release}
+Name: e-uae
+Version: 0.8.29
+Release: %mkrel 1.%{wiprel}.1
 URL: http://sourceforge.net/projects/uaedev/
-Source0: e-uae-%{fversion}.tar.bz2
+Source0: e-uae-%{version}-%{wiprel}.tar.bz2
 Source1: ftp://ftp.berlios.de/pub/cdrecord/alpha/%{cdrname}-%{cdrvers}.tar.bz2
 Patch2: uae-scsi.patch
 Patch4: uae-0.8.25-20040302-libscg.patch
@@ -53,7 +49,7 @@ with the aim of bringing the features of WinUAE to non-Windows platforms
 such as Linux, Mac OS X and BeOS.]
 
 %prep
-%setup -q -a 1 -n %{name}-%{fversion}
+%setup -q -a 1 -n e-uae-%{version}-%{wiprel}
 #%patch2 -p1 -b .scsi
 %patch4 -p1 -b .libscg
 #%patch5 -p1 -b .openscsi
