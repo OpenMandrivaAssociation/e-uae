@@ -49,7 +49,7 @@ with the aim of bringing the features of WinUAE to non-Windows platforms
 such as Linux, Mac OS X and BeOS.]
 
 %prep
-%setup -q -a 1 -n e-uae-%{version}-%{wiprel}
+%setup -q -n e-uae-%{version}-%{wiprel} -a1
 #%patch2 -p1 -b .scsi
 %patch4 -p1 -b .libscg
 #%patch5 -p1 -b .openscsi
