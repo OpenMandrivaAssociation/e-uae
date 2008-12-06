@@ -53,7 +53,7 @@ such as Linux, Mac OS X and BeOS.]
 #%patch2 -p1 -b .scsi
 %patch4 -p1 -b .libscg
 #%patch5 -p1 -b .openscsi
-%patch6 -p1 -b .fucomi
+#%patch6 -p1 -b .fucomi
 
 aclocal -I m4 && automake --foreign --add-missing && autoconf
 cd src/tools
