@@ -1,7 +1,7 @@
 %define name		e-uae
 %define mversion	0.8.29
 %define	rel		%mkrel 4
-%define release		1.WIP3.%{rel}
+%define release		1.WIP4.%{rel}
 %define cdrname		cdrtools
 %define cdrmainvers	2.01
 %define cdrvers 	%{cdrmainvers}a38
