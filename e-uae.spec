@@ -108,6 +108,18 @@ mkdir -p $RPM_BUILD_ROOT%{_prefix}/bin \
 %makeinstall
 cp -pR amiga/* $RPM_BUILD_ROOT/%{_libdir}/uae/amiga/.
 
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
+cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+[Desktop Entry]
+Name=UAE
+Comment=Amiga Emulator
+Exec=%{_bindir}/uae
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Emulator;
+EOF
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -116,6 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc docs/*
 %{_bindir}/*
 %{_libdir}/uae
+%{_datadir}/applications/mandriva-%{name}.desktop
 %doc docs/*
 
 
