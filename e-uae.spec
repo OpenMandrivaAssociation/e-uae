@@ -11,7 +11,7 @@
 Summary: A software emulation of the Amiga system
 Name: e-uae
 Version: 0.8.29
-Release: %mkrel 1.%{wiprel}.1
+Release: %mkrel 1.%{wiprel}.2
 URL: http://sourceforge.net/projects/uaedev/
 Source0: e-uae-%{version}-%{wiprel}.tar.bz2
 Source1: ftp://ftp.berlios.de/pub/cdrecord/alpha/%{cdrname}-%{cdrvers}.tar.bz2
