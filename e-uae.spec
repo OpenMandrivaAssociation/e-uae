@@ -27,7 +27,7 @@ BuildRequires: X11-devel
 BuildRequires: gtk+-devel
 BuildRequires: gtk+2-devel
 BuildRequires: glib-devel
-BuildRequires: SDL-devel prelink xorg-x11-devel
+BuildRequires: SDL-devel prelink libxorg-x11-devel
 BuildRequires: attr-devel libxkbfile-devel
 Conflicts: uae
 Obsoletes: uaedev
