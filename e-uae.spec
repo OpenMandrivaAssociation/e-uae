@@ -26,7 +26,7 @@ BuildRequires: X11-devel
 BuildRequires: gtk+-devel
 BuildRequires: gtk+2-devel
 BuildRequires: glib-devel
-BuildRequires: SDL-devel
+BuildRequires: SDL-devel prelink
 BuildRequires: attr-devel
 Conflicts: uae
 Obsoletes: uaedev
