@@ -27,7 +27,7 @@ BuildRequires: gtk+-devel
 BuildRequires: gtk+2-devel
 BuildRequires: glib-devel
 BuildRequires: SDL-devel prelink
-BuildRequires: attr-devel xkbfile-devel
+BuildRequires: attr-devel libxkbfile-devel
 Conflicts: uae
 Obsoletes: uaedev
 Provides: uaedev
