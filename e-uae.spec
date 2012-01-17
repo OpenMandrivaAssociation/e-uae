@@ -1,3 +1,4 @@
+%define Werror_cflags %nil
 %define cdrname		cdrtools
 %define cdrmainvers	2.01
 %define cdrvers 	%{cdrmainvers}a38
@@ -26,7 +27,7 @@ BuildRequires: X11-devel
 BuildRequires: gtk+-devel
 BuildRequires: gtk+2-devel
 BuildRequires: glib-devel
-BuildRequires: SDL-devel prelink
+BuildRequires: SDL-devel prelink xorg-x11-devel
 BuildRequires: attr-devel libxkbfile-devel
 Conflicts: uae
 Obsoletes: uaedev
