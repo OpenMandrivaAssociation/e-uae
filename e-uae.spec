@@ -26,7 +26,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: X11-devel
 BuildRequires: gtk+-devel
 BuildRequires: gtk+2-devel
-BuildRequires: glib-devel
+BuildRequires: glib-devel x11-data-xkbdata
 BuildRequires: SDL-devel prelink libxorg-x11-devel
 BuildRequires: attr-devel libxkbfile-devel
 Conflicts: uae
