@@ -61,9 +61,9 @@ aclocal
 autoconf
 
 %build
-(cd prelink
+# cd prelink
 %configure
-%make)
+%make
 
 %if %build_scsi
 # build libscg for scsi-device support
