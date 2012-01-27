@@ -1,4 +1,3 @@
-%define Werror_cflags %nil
 %define cdrname		cdrtools
 %define cdrmainvers	2.01
 %define cdrvers 	%{cdrmainvers}a38
@@ -12,7 +11,7 @@
 Summary: A software emulation of the Amiga system
 Name: e-uae
 Version: 0.8.29
-Release: %mkrel 1.%{wiprel}.2
+Release: %mkrel 2.%{wiprel}.1
 URL: http://sourceforge.net/projects/uaedev/
 Source0: e-uae-%{version}-%{wiprel}.tar.bz2
 Source1: ftp://ftp.berlios.de/pub/cdrecord/alpha/%{cdrname}-%{cdrvers}.tar.bz2
@@ -20,15 +19,17 @@ Patch2: uae-scsi.patch
 Patch4: uae-0.8.25-20040302-libscg.patch
 Patch5: uae-0.8.22-openscsi.patch
 Patch6: e-uae-0.8.27-fucomi.patch
+Patch7:	e-uae-0.8.29-WIP4-sdlkeys-wahcade.patch
+Patch8:	e-uae-fix-string-format-bug.patch
 License: GPL
 Group: Emulators
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: X11-devel
-BuildRequires: gtk+-devel
-BuildRequires: gtk+2-devel
-BuildRequires: glib-devel x11-data-xkbdata
-BuildRequires: SDL-devel prelink 
-BuildRequires: attr-devel libxkbfile-devel
+#BuildRequires: gtk+-devel
+#BuildRequires: gtk+2-devel
+#BuildRequires: glib-devel
+BuildRequires: SDL-devel
+BuildRequires: attr-devel
 Conflicts: uae
 Obsoletes: uaedev
 Provides: uaedev
@@ -55,6 +56,8 @@ such as Linux, Mac OS X and BeOS.]
 %patch4 -p1 -b .libscg
 #%patch5 -p1 -b .openscsi
 #%patch6 -p1 -b .fucomi
+%patch7
+%patch8
 
 aclocal -I m4 && automake --foreign --add-missing && autoconf
 cd src/tools
@@ -62,9 +65,9 @@ aclocal
 autoconf
 
 %build
-# cd prelink
-%configure
-%make
+#(cd prelink
+#%configure
+#%make)
 
 %if %build_scsi
 # build libscg for scsi-device support
@@ -109,18 +112,6 @@ mkdir -p $RPM_BUILD_ROOT%{_prefix}/bin \
 %makeinstall
 cp -pR amiga/* $RPM_BUILD_ROOT/%{_libdir}/uae/amiga/.
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=UAE
-Comment=Amiga Emulator
-Exec=%{_bindir}/uae
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=GNOME;GTK;Emulator;
-EOF
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -129,7 +120,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc docs/*
 %{_bindir}/*
 %{_libdir}/uae
-%{_datadir}/applications/mandriva-%{name}.desktop
 %doc docs/*
 
-
+j
