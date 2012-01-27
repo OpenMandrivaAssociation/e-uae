@@ -117,9 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc docs/*
+# %doc docs/*
 %{_bindir}/*
 %{_libdir}/uae
-%doc docs/*
+# %doc docs/*
 
 j
