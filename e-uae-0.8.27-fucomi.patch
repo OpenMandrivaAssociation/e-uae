@@ -1,0 +1,79 @@
+--- e-uae-0.8.27/src/compemu_support.c.fucomi	2005-01-07 03:49:15.000000000 +0100
++++ e-uae-0.8.27/src/compemu_support.c	2005-01-09 10:35:12.458662452 +0100
+@@ -1657,7 +1657,15 @@
+ 
+     clobber_flags();
+     r=f_readreg(FP_RESULT);
+-    raw_fflags_into_flags(r);
++    if (FFLAG_NREG_CLOBBER_CONDITION) {
++        int tmp2=tmp;
++        tmp=writereg_specific(tmp,4,FFLAG_NREG);
++        raw_fflags_into_flags(r);
++        unlock(tmp);
++        forget_about(tmp2);
++    }
++    else
++        raw_fflags_into_flags(r);
+     f_unlock(r);
+ }
+ 
+--- e-uae-0.8.27/src/compemu_raw_x86.c.fucomi	2005-01-07 03:51:03.000000000 +0100
++++ e-uae-0.8.27/src/compemu_raw_x86.c	2005-01-09 10:40:48.268234719 +0100
+@@ -2437,6 +2437,8 @@
+     return answer;
+ }
+ 
++char cpuid_string[16];
++
+ static void raw_init_cpu(void)
+ {
+     x86_regs x;
+@@ -2459,6 +2461,18 @@
+ 	      x.ecx>>16,
+ 	      x.ecx>>24
+ 	      );
++   /*
++    * to be used in uaelib.c
++    */
++    sprintf (cpuid_string, "%c%c%c%c%c%c%c%c%c%c%c%c",
++              x.ebx,
++              x.ebx >> 8,
++              x.ebx >> 16,
++              x.ebx >> 24,
++              x.edx,
++              x.edx >> 8,
++              x.edx >> 16,
++              x.edx >> 24, x.ecx, x.ecx >> 8, x.ecx >> 16, x.ecx >> 24);
+     have_rat_stall=(x.ecx==0x6c65746e);
+ 
+     if (maxlev>=1) {
+@@ -2471,18 +2485,12 @@
+     if (!have_cmov)
+ 	have_rat_stall=0;
+ #endif
+-#if 0
+     write_log ("have_cmov=%d, avoid_cmov=%d, have_rat_stall=%d\n",
+ 	       have_cmov,currprefs.avoid_cmov,have_rat_stall);
+     if (currprefs.avoid_cmov) {
+ 	write_log("Disabling cmov use despite processor claiming to support it!\n");
+ 	have_cmov=0;
+     }
+-#else
+-    /* Dear Bernie, I don't want to keep around options which are useless, and not
+-       represented in the GUI anymore... Is this okay? */
+-    write_log ("JIT: have_cmov=%d, have_rat_stall=%d\n", have_cmov, have_rat_stall);
+-#endif
+ #if 0   /* For testing of non-cmov code! */
+     have_cmov=0;
+ #endif
+@@ -3164,6 +3172,10 @@
+ }
+ LENDFUNC(NONE,NONE,1,raw_ftst_r,(FR r))
+ 
++/* %eax register is clobbered if target processor doesn't support fucomi */
++#define FFLAG_NREG_CLOBBER_CONDITION !have_cmov
++#define FFLAG_NREG EAX
++
+ STATIC_INLINE void raw_fflags_into_flags(int r)
+ {
+     int p;

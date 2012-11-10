@@ -1,0 +1,11 @@
+--- src/gfx-sdl/sdlkeys.c	2005-09-12 02:00:35.000000000 -0400
++++ src/gfx-sdl/sdlkeys.c	2012-01-26 00:42:36.000000000 -0500
+@@ -376,7 +376,7 @@
+  */
+ static struct uae_hotkeyseq sdl_hotkeys[] =
+ {
+-    { MAKE_HOTKEYSEQ (SDLK_F12, SDLK_q, -1, -1,           INPUTEVENT_SPC_QUIT) },
++    { MAKE_HOTKEYSEQ (SDLK_ESCAPE, SDLK_ESCAPE, -1, -1,   INPUTEVENT_SPC_QUIT) },
+     { MAKE_HOTKEYSEQ (SDLK_F12, SDLK_r, -1, -1,           INPUTEVENT_SPC_SOFTRESET) },
+     { MAKE_HOTKEYSEQ (SDLK_F12, SDLK_LSHIFT, SDLK_r, -1,  INPUTEVENT_SPC_HARDRESET)}, \
+     { MAKE_HOTKEYSEQ (SDLK_F12, SDLK_d, -1, -1,           INPUTEVENT_SPC_ENTERDEBUGGER)}, \
