@@ -121,3 +121,87 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %{_libdir}/uae
 # %doc docs/*
+
+
+%changelog
+* Fri Jan 27 2012 Zombie Ryushu <ryushu@mandriva.org> 0.8.29-2.WIP4.1mdv2011.0
++ Revision: 769464
+- Fix deps
+- Add wahcade patch and fix string bugs care of codebase7@yahoo.com
+- Fix xkb
+- Fix xkb
+- Fix Prelink
+- Add Prelink
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+  + Olivier Blin <blino@mandriva.org>
+    - add XDG menu
+
+* Sat Dec 06 2008 Oden Eriksson <oeriksson@mandriva.com> 0.8.29-1.WIP4.1mdv2009.1
++ Revision: 311430
+- fix spec file again...
+- spec file cleanup
+
+  + Zombie Ryushu <ryushu@mandriva.org>
+    - Disable fucomi patch which is obsolete here
+    - Fix Macros
+    - Version bump
+    - Version bump
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 0.8.29-1.WIP3.4mdv2009.0
++ Revision: 244983
+- rebuild
+
+* Fri Dec 21 2007 Olivier Blin <blino@mandriva.org> 0.8.29-1.WIP3.2mdv2008.1
++ Revision: 136407
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+    - buildrequires X11-devel instead of XFree86-devel
+
+
+* Mon Mar 19 2007 Giuseppe GhibÃ² <ghibo@mandriva.com> 0.8.29-1.WIP3.2mdv2007.1
++ Revision: 146623
+- Added attr-devel, gtk+2-devel to BuildRequires.
+- Rebuilt.
+- Import e-uae
+
+* Sun Sep 03 2006 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.29-1.WIP3.1mdv2007.0
+- Release 0.8.29-WIP3.
+
+* Sun Feb 19 2006 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.28-2.cvs20060219.1mdk
+- cvs 20060219.
+
+* Fri Oct 21 2005 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.28-1mdk
+- 0.8.28 final.
+
+* Wed Sep 07 2005 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.28-0.rc2.4mdk
+- use -Wa,--execstack instead of execstack -s from prelink (Gwenole).
+
+* Tue Sep 06 2005 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.28-0.rc2.3mdk
+- cvs 20050905.
+- make binary executable stack, otherwise segfaults on A64.
+
+* Fri Aug 26 2005 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.28-0.rc2.2mdk
+- Updated to final 0.8.28-RC2.
+
+* Wed Aug 17 2005 Giuseppe Ghibò <ghibo@mandriva.com> 0.8.28-0.rc2.1mdk
+- Relase 0.8.28rc2.
+
+* Sat Jan 08 2005 Giuseppe Ghibò <ghibo@mandrakesoft.com> 0.8.27-2mdk
+- Added Provides.
+
+* Sat Jan 08 2005 Giuseppe Ghibò <ghibo@mandrakesoft.com> 0.8.27-1mdk
+- Release 0.8.27.
+- Readapted fucomi patch.
+
+* Mon Dec 06 2004 Giuseppe Ghibò <ghibo@mandrakesoft.com> 0.8.27-0.20041204.1mdk
+- Updated to CVS 20041205.
+
+* Thu Sep 02 2004 Giuseppe Ghibò <ghibo@mandrakesoft.com> 0.8.27-0.20040831.1mdk
+- Initial release based on uae spec file.
+- Disabled fucomi patch (needs to be rebuilt for new sources).
+
