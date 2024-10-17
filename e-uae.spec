@@ -14,7 +14,7 @@ Version:	0.8.29
 Release:	2.%{wiprel}.2
 License:	GPLv2+
 Group:		Emulators
-Url:		http://sourceforge.net/projects/uaedev/
+Url:		https://sourceforge.net/projects/uaedev/
 Source0:	e-uae-%{version}-%{wiprel}.tar.bz2
 Source1:	ftp://ftp.berlios.de/pub/cdrecord/alpha/%{cdrname}-%{cdrvers}.tar.bz2
 Source10:	%{name}.rpmlintrc
